@@ -8,8 +8,8 @@
 const char *ssid = WIFI_SSID;
 const char *password = WIFI_PASSWORD;
 const char *mqtt_server = "192.168.2.85";
-const char *mqtt_user = "admin1";
-const char *mqtt_pass = "admin1";
+const char *mqtt_user = "mqtt-test";
+const char *mqtt_pass = "mqtt-test";
 
 // pins and millis
 Led led(2);
@@ -60,7 +60,7 @@ void publishLdrReading(){
 
   char msg[8];
   sprintf(msg, "%i", analogRead(ldrPin));
-  client.publish("scanner", msg);
+  client.publish("scanner_mqtt", msg);
 }
 
 void connectToBroker()
